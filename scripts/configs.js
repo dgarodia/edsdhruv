@@ -1,4 +1,4 @@
-import { getHref, getOrigin } from './scripts';
+import { getHref, getOrigin } from './scripts.js';
 
 const ALLOWED_CONFIGS = ['prod', 'stage', 'dev'];
 
@@ -38,7 +38,7 @@ function buildConfigURL(environment) {
   if (env !== 'prod') {
     fileName = `configs-${env}.json`;
   }
-  const configURL = new URL(`${window.location.origin}/${fileName}`);
+  const configURL = new URL(`${getOrigin()}/${fileName}`);
   return configURL;
 }
 
